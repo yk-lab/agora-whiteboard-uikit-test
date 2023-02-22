@@ -1,0 +1,32 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+django = "*"
+django-filter = "*"
+django-extensions = "*"
+werkzeug = "*"
+django-model-utils = "*"
+django-debug-toolbar = "*"
+django-crispy-forms = "*"
+crispy-bootstrap5 = "*"
+uwsgi = "*"
+django-glrm = "*"
+django-allauth = "*"
+djangorestframework = "*"
+markdown = "*"
+requests = "*"
+django-vite = "*"
+django-cors-headers = "*"
+whitenoise = "*"
+
+[dev-packages]
+flake8 = "*"
+autopep8 = "*"
+isort = "*"
+flake8-isort = "*"
+
+[requires]
+python_version = "3.11"

@@ -1,0 +1,8 @@
+.venv/
+node_modules/
+*.sqlite3
+frontend/dist/
+app/collectstatic/*
+!app/collectstatic/.gitkeep
+compose.yml
+.env

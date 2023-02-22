@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% load static %}
+{% load django_vite %}
+
+{% block content %}
+<div class="mb-4 not_room_joined">
+  <button type="button" class="btn btn-primary" id="create_room">ルームを作成する</button>
+  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#joinRoomModal">
+    ルームに参加する
+  </button>
+</div>
+<div class="mb-4 room_joined d-none">
+  <button type="button" class="btn btn-primary" id="destory_room_connection">切断する</button>
+</div>
+
+<div id="app" class="mb-4" style="width: 600px; height: 400px; border: 1px solid;"></div>
+
+<div class="room_joined d-none">
+  <label for="roomId" class="form-label">ルームID</label>
+  <input type="text" class="form-control" id="roomId" readonly>
+</div>
+
+<div class="modal fade" id="joinRoomModal" tabindex="-1" aria-labelledby="joinRoomModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="joinRoomModalLabel">ルームに参加する</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="mb-3">
+          <label for="joinRoomId" class="form-label">ルームID</label>
+          <input type="text" class="form-control" id="joinRoomId">
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" id="join_room">参加する</button>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block extra_body %}
+{% if debug %}
+{% vite_hmr_client %}
+{% vite_asset 'main.ts' %}
+{% else %}
+{% vite_asset 'main.ts' %}
+{% endif %}
+{% endblock extra_body %}
